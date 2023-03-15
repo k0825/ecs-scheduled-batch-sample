@@ -10,7 +10,7 @@ resource "aws_ecs_task_definition" "task_def" {
   requires_compatibilities = ["FARGATE"]
   container_definitions = jsonencode([{
     name   = "sample"
-    image  = "amazon/amazon-ecs-sample"
+    image  = "141864838114.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-scheduled-batch"
     cpu    = 256
     memory = 512
     logConfiguration = {
@@ -24,5 +24,6 @@ resource "aws_ecs_task_definition" "task_def" {
     essential = true
   }])
   execution_role_arn = aws_iam_role.ecs_role.arn
+  task_role_arn      = aws_iam_role.ecs_role.arn
 
 }
