@@ -10,7 +10,7 @@ resource "aws_ecs_task_definition" "task_def" {
   requires_compatibilities = ["FARGATE"]
   container_definitions = jsonencode([{
     name   = "sample"
-    image  = "141864838114.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-scheduled-batch"
+    image  = "141864838114.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-scheduled-batch:latest"
     cpu    = 256
     memory = 512
     logConfiguration = {
