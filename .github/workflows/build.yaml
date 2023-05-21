@@ -27,7 +27,7 @@ jobs:
           aws-region: ap-northeast-1
 
       - name: Login to Amazon ECR
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v1
         with:
           registry: ${{ env.ECR_REGISTRY }}
 
