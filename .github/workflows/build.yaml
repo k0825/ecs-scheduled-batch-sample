@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: read
+
 env:
   ECR_REGISTORY: 141864838114.dkr.ecr.ap-northeast-1.amazonaws.com
   ECR_REPOSITORY: ecs-scheduled-batch
