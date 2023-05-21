@@ -35,9 +35,7 @@ jobs:
         with:
           registry: ${{ env.ECR_REGISTRY }}
 
-      - name: Build, tag, and push image to Amazon ECR
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          context: application
-          tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+      - name: Build and push image to Amazon ECR
+        run: |
+          docker build . --tag ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+          docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
