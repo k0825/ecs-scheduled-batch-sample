@@ -36,4 +36,3 @@ jobs:
         with:
           push: true
           tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
-      -
