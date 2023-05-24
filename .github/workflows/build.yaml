@@ -39,5 +39,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: ./application/Dockerfile
+          context: ./application
           tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
