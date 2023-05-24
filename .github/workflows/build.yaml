@@ -17,6 +17,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    default:
+      working-directory: ./application
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -39,8 +41,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: ./application
-          file: ./application/Dockerfile
+          file: Dockerfile.dev
           tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
