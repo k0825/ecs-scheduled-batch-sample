@@ -1,0 +1,21 @@
+[
+  {
+    "name": "${task_name}",
+    "image": "${image_arn}",
+    "cpu": 256,
+    "memory": 512,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/ecs/fargate-task-definition",
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "ecs"
+      }
+    },
+    "essential": true,
+    "command": ["sleep", "3600"],
+    "linuxParameters": {
+      "initProcessEnabled": true
+    }
+  }
+]

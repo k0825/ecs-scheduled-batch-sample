@@ -11,9 +11,8 @@ resource "aws_cloudwatch_event_target" "scheduled_batch" {
     platform_version       = "1.4.0"
     enable_execute_command = true
     network_configuration {
-      subnets          = ["subnet-07ac474adb212ae1c"]
-      security_groups  = ["sg-0b6a4493b12370ebb"]
-      assign_public_ip = true
+      subnets         = ["subnet-07ac474adb212ae1c"]
+      security_groups = ["sg-0b6a4493b12370ebb"]
     }
   }
 
