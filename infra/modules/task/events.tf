@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_event_target" "scheduled_batch" {
-  target_id = "sample"
-  arn       = aws_ecs_cluster.ecs_scheduled_batch.arn
+  target_id = var.task_name
+  arn       = var.ecs_cluster_arn
   rule      = aws_cloudwatch_event_rule.scheduled_batch.name
   role_arn  = aws_iam_role.events_role.arn
 
@@ -21,8 +21,8 @@ resource "aws_cloudwatch_event_target" "scheduled_batch" {
     {
       containerOverrides = [
         {
-          name    = "sample",
-          command = ["echo", "\"HelloWorld\""]
+          name    = var.task_name,
+          command = var.command
         }
       ]
     }
@@ -30,7 +30,7 @@ resource "aws_cloudwatch_event_target" "scheduled_batch" {
 }
 
 resource "aws_cloudwatch_event_rule" "scheduled_batch" {
-  name                = "sample-scheduled-batch"
+  name                = var.task_name
   is_enabled          = true
-  schedule_expression = "cron(* * * * ? *)"
+  schedule_expression = var.schedule_expression
 }
