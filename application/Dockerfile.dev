@@ -7,4 +7,4 @@ RUN docker-php-ext-install intl pdo_mysql zip bcmath
 
 WORKDIR /app
 
-COPY index.php index.php
+COPY . .
