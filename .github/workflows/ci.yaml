@@ -24,7 +24,7 @@ jobs:
 
       - name: create hello.txt
         run: |
-          echo "hello" > hello.txt
+          echo "hello" > ./application/hello.txt
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
